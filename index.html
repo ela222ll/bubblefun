@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok 3 | Produk Kebersihan Kapibara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bubble-blue: #00d2ff;
+            --deep-blue: #004e92;
+            --accent-color: #ff7675;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #e0f7fa, #80deea);
+            color: #2d3436;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--deep-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li { margin-left: 20px; }
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--deep-blue); 
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--accent-color); }
+
+        /* --- HEADER (JUDUL GERAK) --- */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .moving-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 4px 4px #00a8ff;
+            animation: wobble 2s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-3deg) scale(1); }
+            50% { transform: rotate(3deg) scale(1.1); color: #fff200; }
+        }
+
+        header p {
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            max-width: 1100px;
+            margin: -50px auto 50px auto;
+            padding: 20px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 4px solid #fff;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .card:hover { transform: scale(1.03); border-color: var(--bubble-blue); }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .product-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--deep-blue);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            background: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #636e72;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .buy-btn {
+            display: block;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .buy-btn:hover { background: #128C7E; transform: translateY(-3px); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--deep-blue);
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .qr-box {
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            margin: 20px;
+        }
+
+        .school-info { text-align: left; max-width: 300px; }
+
+        /* Background Bubbles */
+        .bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            bottom: -50px;
+            animation: rise 10s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🧼 BubbleFun</div>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div id="bubbles"></div>
+        <h1 class="moving-title">Kelompok 3</h1>
+        <p>Kebersihan Menyenangkan bersama Kapibara!</p>
+    </header>
+
+    <main id="produk">
+        <div class="product-container">
+            <div class="card">
+                <img src="https://placehold.co/600x400/FFEAA7/8B4513?text=Soap+Capybara" alt="Sabun Kapibara" class="product-img">
+                <h2 class="product-title">Kapibara Soap</h2>
+                <div class="price-tag">Rp 10.000</div>
+                <div class="description">
+                    Sabun cuci tangan unik berbentuk hewan lucu <b>kapibara</b> yang menggemaskan, cocok untuk membuat aktivitas mencuci tangan jadi lebih menyenangkan! Terbuat dari <i>soap base 100% berkualitas</i> yang lembut di kulit, serta dilengkapi pewangi harum yang menyegarkan. Sangat pas untuk hiasan kamar mandi atau kado spesial!
+                </div>
+                <a href="https://wa.me/6281575572829?text=Beli%20Sabun%20Kapibara" class="buy-btn">🛒 Beli Sekarang</a>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/600x400/81ECEC/008080?text=Sanitizer+Aloe" alt="Hand Sanitizer" class="product-img">
+                <h2 class="product-title">Aloe Sanitizer</h2>
+                <div class="price-tag">Rp 15.000</div>
+                <div class="description">
+                    Jaga kebersihan tangan kapan saja dengan <b>hand sanitizer spray 60 ml</b>. Diformulasikan dengan ekstrak lidah buaya yang menjaga kelembapan kulit dan 20% alkohol untuk membasmi kuman. Ringan, cepat kering, dan tidak lengket. Praktis dibawa ke mana saja!
+                </div>
+                <a href="https://wa.me/6281575572829?text=Beli%20Hand%20Sanitizer" class="buy-btn">🛒 Beli Sekarang</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="kontak">
+        <div class="footer-content">
+            <div class="school-info">
+                <h3>Produksi Kami</h3>
+                <p>Oleh: <strong>Kelompok 3</strong></p>
+                <p>📍 SMK Negeri 1 Ampelgading</p>
+                <p>Hubungi: 081575572829</p>
+            </div>
+            
+            <div class="qr-box">
+                <p style="color:#2d3436; font-size: 0.8rem; font-weight:bold;">SCAN ME</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/6281575572829" alt="Barcode">
+            </div>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.7rem; opacity: 0.7;">&copy; 2024 Kelompok 3 - All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Membuat gelembung di latar belakang
+        const bubbleContainer = document.getElementById('bubbles');
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 50 + 10 + 'px';
+            bubble.style.width = size;
+            bubble.style.height = size;
+            bubble.style.left = Math.random() * 100 + 'vw';
+            bubble.style.animationDuration = Math.random() * 3 + 5 + 's';
+            bubbleContainer.appendChild(bubble);
+            
+            setTimeout(() => { bubble.remove(); }, 8000);
+        }
+        setInterval(createBubble, 1000);
+    </script>
+</body>
+</html>
